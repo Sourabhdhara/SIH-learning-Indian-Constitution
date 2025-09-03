@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Constitution Learning Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-balance-scale"></i>
+                <h1>Constitution Hub</h1>
+            </div>
+            <nav class="nav">
+                <button id="chatToggle" class="nav-btn active">
+                    <i class="fas fa-robot"></i>
+                    AI Chat
+                </button>
+                <button id="articlesToggle" class="nav-btn">
+                    <i class="fas fa-book"></i>
+                    Articles
+                </button>
+                <button id="adminToggle" class="nav-btn">
+                    <i class="fas fa-cog"></i>
+                    Manage
+                </button>
+                <a href="quiz.html" class="nav-btn">Constitution Quiz</a>
+
+
+                
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Chat Section -->
+            <section id="chatSection" class="section active">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h2><i class="fas fa-robot"></i> AI Constitutional Assistant</h2>
+                        <p>Ask me anything about the Indian Constitution</p>
+                    </div>
+                    <div id="chatWindow" class="chat-window">
+                        <div class="welcome-message">
+                            <div class="bot-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p><strong>ConBot:</strong> Hello! I'm your Constitutional Assistant. Ask me anything about the Indian Constitution - from basic concepts to detailed explanations!</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+
+
+
+
+                    <form id="chatForm" class="chat-form">
+                        <div class="input-group">
+                            <input type="text" id="userInput" placeholder="Ask about fundamental rights, amendments, articles..." autocomplete="off" required>
+                            <button type="submit" class="send-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="quick-questions">
+                            <button type="button" class="quick-btn" data-question="What are Fundamental Rights?">Fundamental Rights</button>
+                            <button type="button" class="quick-btn" data-question="What is the Preamble?">Preamble</button>
+                            <button type="button" class="quick-btn" data-question="How many articles are there?">Articles Count</button>
+                            <button type="button" class="quick-btn" data-question="Who drafted the Constitution?">Dr. Ambedkar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Articles Section -->
+            <section id="articlesSection" class="section">
+                <div class="articles-container">
+                    <aside class="articles-sidebar">
+                        <div class="sidebar-header">
+                            <h3><i class="fas fa-list"></i> Topics</h3>
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="articleSearch" placeholder="Search articles...">
+                            </div>
+                        </div>
+                        <div id="articlesList" class="articles-list">
+                            <!-- Articles will be loaded here -->
+                        </div>
+                    </aside>
+                    <main class="article-content">
+                        <div id="articleViewer" class="article-viewer">
+                            <div class="welcome-article">
+                                <i class="fas fa-book-open"></i>
+                                <h2>Welcome to Constitution Hub</h2>
+                                <p>Select an article from the sidebar to read detailed information about the Indian Constitution.</p>
+                                <div class="features">
+                                    <div class="feature">
+                                        <i class="fas fa-robot"></i>
+                                        <span>AI-powered chatbot for instant answers</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-book"></i>
+                                        <span>Comprehensive articles database</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-search"></i>
+                                        <span>Smart search functionality</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </section>
+
+            <!-- Admin Section -->
+            <section id="adminSection" class="section">
+
+
+                  <div class="admin-container">
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="qa">Manage Q&A</button>
+        <button class="admin-tab" data-tab="articles">Manage Articles</button>
+        <button class="admin-tab" data-tab="backup">Backup/Restore</button>
+      </div>
+      <!-- Theme Settings Panel -->
+      <div id="themeSettings" class="theme-settings">
+        <h4>Customize Theme</h4>
+        <label>Primary Color: <input type="color" id="primaryColor" value="#3949AB"></label>
+        <label>Secondary Color: <input type="color" id="secondaryColor" value="#E91E63"></label>
+        <label>Background Color: <input type="color" id="bgColor" value="#FAFAFA"></label>
+        <button id="saveTheme">Save Theme</button>
+      </div>
+
+
+
+                <div class="admin-container">
+                    <div class="admin-tabs">
+                        <button class="admin-tab active" data-tab="qa">Manage Q&A</button>
+                        <button class="admin-tab" data-tab="articles">Manage Articles</button>
+                        <button class="admin-tab" data-tab="backup">Backup/Restore</button>
+                    </div>
+                    
+                    <!-- Q&A Management -->
+                    <div id="qaTab" class="admin-tab-content active">
+                        <div class="admin-header">
+                            <h3>Q&A Management</h3>
+                            <button id="addQABtn" class="add-btn">
+                                <i class="fas fa-plus"></i> Add New Q&A
+                            </button>
+                        </div>
+                        <div class="qa-form" id="qaForm" style="display: none;">
+                            <h4>Add/Edit Q&A</h4>
+                            <input type="hidden" id="qaEditId">
+                            <div class="form-group">
+                                <label>Question:</label>
+                                <input type="text" id="qaQuestion" placeholder="Enter question">
+                            </div>
+                            <div class="form-group">
+                                <label>Answer:</label>
+                                <textarea id="qaAnswer" placeholder="Enter answer" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Category:</label>
+                                <select id="qaCategory">
+                                    <option value="basics">Basics</option>
+                                    <option value="rights">Rights</option>
+                                    <option value="government">Government</option>
+                                    <option value="amendments">Amendments</option>
+                                    <option value="history">History</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" id="saveQA" class="save-btn">Save</button>
+                                <button type="button" id="cancelQA" class="cancel-btn">Cancel</button>
+                            </div>
+                        </div>
+                        <div id="qaList" class="data-list">
+                            <!-- Q&A items will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Articles Management -->
+                    <div id="articlesTab" class="admin-tab-content">
+                        <div class="admin-header">
+                            <h3>Articles Management</h3>
+                            <button id="addArticleBtn" class="add-btn">
+                                <i class="fas fa-plus"></i> Add New Article
+                            </button>
+                        </div>
+                        <div class="article-form" id="articleForm" style="display: none;">
+                            <h4>Add/Edit Article</h4>
+                            <input type="hidden" id="articleEditId">
+                            <div class="form-group">
+                                <label>Title:</label>
+                                <input type="text" id="articleTitle" placeholder="Enter article title">
+                            </div>
+                            <div class="form-group">
+                                <label>Content:</label>
+                                <textarea id="articleContent" placeholder="Enter article content" rows="8"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Category:</label>
+                                <select id="articleCategory">
+                                    <option value="fundamentals">Fundamentals</option>
+                                    <option value="rights">Rights</option>
+                                    <option value="government">Government</option>
+                                    <option value="judiciary">Judiciary</option>
+                                    <option value="amendments">Amendments</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" id="saveArticle" class="save-btn">Save</button>
+                                <button type="button" id="cancelArticle" class="cancel-btn">Cancel</button>
+                            </div>
+                        </div>
+                        <div id="articleAdminList" class="data-list">
+                            <!-- Articles will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Backup/Restore -->
+                    <div id="backupTab" class="admin-tab-content">
+                        <div class="backup-section">
+                            <h3>Backup & Restore Data</h3>
+                            <div class="backup-actions">
+                                <button id="exportData" class="export-btn">
+                                    <i class="fas fa-download"></i> Export All Data
+                                </button>
+                                <div class="import-section">
+                                    <input type="file" id="importFile" accept=".json" style="display: none;">
+                                    <button id="importData" class="import-btn">
+                                        <i class="fas fa-upload"></i> Import Data
+                                    </button>
+                                </div>
+                                <button id="resetData" class="reset-btn">
+                                    <i class="fas fa-refresh"></i> Reset to Default
+                                </button>
+                            </div>
+                            <div class="data-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Total Q&A:</span>
+                                    <span id="qaCount">0</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Total Articles:</span>
+                                    <span id="articleCount">0</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Last Updated:</span>
+                                    <span id="lastUpdated">Never</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Constitution Hub - Learn the Indian Constitution Simply</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/sourabh-dhara-214700302/"><i class="fas fa-info-circle"></i> About</a>
+                <a href="https://www.instagram.com/sourabh_dhara/"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="https://github.com/Sourabhdhara"><i class="fas fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
