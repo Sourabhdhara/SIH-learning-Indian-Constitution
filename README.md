@@ -1,4 +1,4 @@
-# Constitution Hub - Simple JavaScript Version
+# Constitution Hub - Simple JavaScript Version   https://sourabhdhara.github.io/SIH-learning-Indian-Constitution/
 
 ## 🚀 No Installation Required!
 
@@ -8,6 +8,7 @@ This is a **simple, standalone website** that runs entirely in your browser. No 
 ```
 Constitution Hub/
 ├── index.html       # Main webpage
+├── quiz.html        # quiz page              
 ├── style.css        # All styling
 ├── script.js        # Complete functionality
 └── README.md        # This file
