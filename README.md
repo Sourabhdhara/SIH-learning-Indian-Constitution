@@ -495,15 +495,15 @@ SOFTWARE.
 
 ### **Getting Help**
 - 📖 Check this README for comprehensive documentation
-- 🐛 [Open an issue](https://github.com/YOUR-USERNAME/constitution-hub/issues) for bug reports
-- 💡 [Request features](https://github.com/YOUR-USERNAME/constitution-hub/issues) for new functionality
-- 💬 [Start a discussion](https://github.com/YOUR-USERNAME/constitution-hub/discussions) for questions
+- 🐛 [Open an issue](https://github.com/sourabhdhara/constitution-hub/issues) for bug reports
+- 💡 [Request features](https://github.com/sourabhdhara/constitution-hub/issues) for new functionality
+- 💬 [Start a discussion](https://github.com/sourabhdhara/constitution-hub/discussions) for questions
 
 ### **Project Stats**
-![GitHub stars](https://img.shields.io/github/stars/YOUR-USERNAME/constitution-hub?style=social)
-![GitHub forks](https://img.shields.io/github/forks/YOUR-USERNAME/constitution-hub?style=social)
-![GitHub issues](https://img.shields.io/github/issues/YOUR-USERNAME/constitution-hub)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/YOUR-USERNAME/constitution-hub)
+![GitHub stars](https://img.shields.io/github/stars/sourabhdhara/constitution-hub?style=social)
+![GitHub forks](https://img.shields.io/github/forks/sourabhdhara/constitution-hub?style=social)
+![GitHub issues](https://img.shields.io/github/issues/sourabhdhara/constitution-hub)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/sourabhdhara/constitution-hub)
 
 ---
 
