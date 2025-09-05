@@ -1,0 +1,93 @@
+Preamble of the Indian Constitution
+The Preamble to the Constitution of India is an introductory statement that sets out the guiding purpose and principles of the document. It declares India to be a **sovereign, socialist, secular, democratic republic** and ensures justice, liberty, equality, and fraternity for all citizens.
+
+**Key Features:**
+- **SOVEREIGN** - India is free from external control
+- **SOCIALIST** - Economic equality and social justice
+- **SECULAR** - No state religion; all religions are treated equally
+- **DEMOCRATIC** - Government by the people
+- **REPUBLIC** - Head of state is elected, not hereditary
+
+The Preamble reflects the aspirations and values of the Indian people and serves as a beacon for the interpretation of the Constitution.
+
+---
+
+Fundamental Rights
+Fundamental Rights are the basic human rights guaranteed by the Constitution of India to all its citizens. These rights are essential for the development of personality and dignity of individuals.
+
+**The Six Categories are:**
+1. **Right to Equality (Articles 14-18)** - Equality before law, prohibition of discrimination
+2. **Right to Freedom (Articles 19-22)** - Freedom of speech, assembly, movement
+3. **Right against Exploitation (Articles 23-24)** - Prohibition of forced labour, child labour
+4. **Right to Freedom of Religion (Articles 25-28)** - Freedom of conscience and religion
+5. **Cultural and Educational Rights (Articles 29-30)** - Protection of minorities
+6. **Right to Constitutional Remedies (Article 32)** - Right to approach Supreme Court
+
+These rights are justiciable, meaning they can be enforced through courts of law.
+
+---
+
+Directive Principles of State Policy
+The Directive Principles of State Policy are guidelines to the central and state governments of India, to be kept in mind while framing laws and policies. These are mentioned in Part IV (Articles 36-51) of the Constitution.
+
+**Key Principles:**
+- **Economic Justice** - Equal pay for equal work
+- **Social Justice** - Free legal aid to the poor
+- **Educational Development** - Free and compulsory education for children
+- **Public Health** - Improvement of public health and prohibition of intoxicating drinks
+- **Environmental Protection** - Protection and improvement of environment
+
+Though not enforceable by courts, these principles are fundamental in governance and help in establishing a just society.
+
+---
+
+Union and State Relations
+The Constitution of India establishes a federal system of government with clear division of powers between the Union (Central) Government and State Governments. This division is outlined in three lists:
+
+**Three Lists:**
+1. **Union List** - Subjects under exclusive jurisdiction of Central Government (97 subjects)
+2. **State List** - Subjects under exclusive jurisdiction of State Governments (66 subjects)  
+3. **Concurrent List** - Subjects under joint jurisdiction (47 subjects)
+
+**Key Features:**
+- **Single Constitution** for Union and States
+- **Flexible Federalism** with unitary bias
+- **Emergency Provisions** that can make the system unitary
+- **Governor** as constitutional head of states
+
+This system ensures both unity and diversity in governance.
+
+---
+
+Amendment Procedure
+The Indian Constitution provides for its amendment under Article 368. The procedure varies depending on the nature of the amendment:
+
+**Types of Amendments:**
+1. **Simple Majority** - Some provisions can be amended by simple majority of Parliament
+2. **Special Majority** - Most amendments require 2/3rd majority of members present and voting
+3. **Ratification by States** - Some amendments also require ratification by half the state legislatures
+
+**Key Points:**
+- **Flexibility and Rigidity** - Constitution is neither too rigid nor too flexible
+- **Judicial Review** - Supreme Court can review amendments (Basic Structure Doctrine)
+- **104 Amendments** have been made so far (as of 2020)
+
+The amendment procedure ensures the Constitution remains relevant while preserving its core principles.
+
+---
+
+Separation of Powers
+The Indian Constitution incorporates the principle of separation of powers among three organs of government:
+
+**Three Organs:**
+1. **Legislature** - Parliament and State Legislatures (Law-making)
+2. **Executive** - President, Prime Minister, Council of Ministers (Implementation)
+3. **Judiciary** - Supreme Court, High Courts, Subordinate Courts (Interpretation)
+
+**Features:**
+- **Checks and Balances** - Each organ checks the others
+- **Independence of Judiciary** - Judges have security of tenure
+- **Parliamentary Supremacy** - Parliament is supreme in law-making
+- **Executive Accountability** - Executive is accountable to Legislature
+
+This ensures no single organ becomes too powerful and maintains democratic governance.

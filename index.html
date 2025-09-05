@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Constitution Learning Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-balance-scale"></i>
+                <h1>Constitution Hub</h1>
+            </div>
+            <nav class="nav">
+                <button id="chatToggle" class="nav-btn active">
+                    <i class="fas fa-robot"></i>
+                    AI Chat
+                </button>
+                <button id="articlesToggle" class="nav-btn">
+                    <i class="fas fa-book"></i>
+                    Articles
+                </button>
+                <button id="quizToggle" class="nav-btn">
+                    <i class="fas fa-puzzle-piece"></i>
+                    Quiz
+                </button>
+                <button id="adminToggle" class="nav-btn">
+                    <i class="fas fa-cog"></i>
+                    Manage
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Chat Section -->
+            <section id="chatSection" class="section active">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h2><i class="fas fa-robot"></i> AI Constitutional Assistant</h2>
+                        <p>Ask me anything about the Indian Constitution</p>
+                        <div class="data-status">
+                            <span id="dataStatus" class="status-indicator">Loading data...</span>
+                        </div>
+                    </div>
+                    <div id="chatWindow" class="chat-window">
+                        <div class="welcome-message">
+                            <div class="bot-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p><strong>ConBot:</strong> Hello! I'm your Constitutional Assistant. Ask me anything about the Indian Constitution - from basic concepts to detailed explanations!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="chatForm" class="chat-form">
+                        <div class="input-group">
+                            <input type="text" id="userInput" placeholder="Ask about fundamental rights, amendments, articles..." autocomplete="off" required>
+                            <button type="submit" class="send-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="quick-questions">
+                            <button type="button" class="quick-btn" data-question="What are Fundamental Rights?">Fundamental Rights</button>
+                            <button type="button" class="quick-btn" data-question="What is the Preamble?">Preamble</button>
+                            <button type="button" class="quick-btn" data-question="How many articles are there?">Articles Count</button>
+                            <button type="button" class="quick-btn" data-question="Who drafted the Constitution?">Dr. Ambedkar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Articles Section -->
+            <section id="articlesSection" class="section">
+                <div class="articles-container">
+                    <aside class="articles-sidebar">
+                        <div class="sidebar-header">
+                            <h3><i class="fas fa-list"></i> Topics</h3>
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="articleSearch" placeholder="Search articles...">
+                            </div>
+                        </div>
+                        <div id="articlesList" class="articles-list">
+                            <!-- Articles will be loaded here -->
+                        </div>
+                    </aside>
+                    <main class="article-content">
+                        <div id="articleViewer" class="article-viewer">
+                            <div class="welcome-article">
+                                <i class="fas fa-book-open"></i>
+                                <h2>Welcome to Constitution Hub</h2>
+                                <p>Select an article from the sidebar to read detailed information about the Indian Constitution.</p>
+                                <div class="features">
+                                    <div class="feature">
+                                        <i class="fas fa-robot"></i>
+                                        <span>AI-powered chatbot for instant answers</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-book"></i>
+                                        <span>Comprehensive articles database</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-search"></i>
+                                        <span>Smart search functionality</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-puzzle-piece"></i>
+                                        <span>Interactive quiz system</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quizSection" class="section">
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <h2><i class="fas fa-puzzle-piece"></i> Constitutional Knowledge Quiz</h2>
+                        <p>Test your understanding of the Indian Constitution</p>
+                    </div>
+                    <div id="quizStats" class="quiz-stats" style="display: none;">
+                        <div class="stat-item">
+                            <span class="stat-value" id="currentScore">0</span>
+                            <span class="stat-label">Score</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="currentQuestion">0</span>
+                            <span class="stat-label">Question</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="totalQuestions">0</span>
+                            <span class="stat-label">Total</span>
+                        </div>
+                    </div>
+                    <div id="quizContent" class="quiz-content">
+                        <div class="quiz-welcome">
+                            <i class="fas fa-puzzle-piece" style="font-size: 4rem; color: var(--color-primary); margin-bottom: 16px;"></i>
+                            <h3>Ready to test your knowledge?</h3>
+                            <p>Challenge yourself with questions about the Indian Constitution</p>
+                            <button id="startQuizBtn" class="btn btn--primary btn--lg">
+                                <i class="fas fa-play"></i> Start Quiz
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Section -->
+            <section id="adminSection" class="section">
+                <div class="admin-container">
+                    <div class="admin-tabs">
+                        <button class="admin-tab active" data-tab="qa">Manage Q&A</button>
+                        <button class="admin-tab" data-tab="articles">Manage Articles</button>
+                        <button class="admin-tab" data-tab="quiz">Manage Quiz</button>
+                        <button class="admin-tab" data-tab="sources">Data Sources</button>
+                        <button class="admin-tab" data-tab="theme">🎨 Theme Customizer</button>
+                        <button class="admin-tab" data-tab="backup">Backup/Restore</button>
+                    </div>
+
+                    <!-- Q&A Management -->
+                    <div id="qaTab" class="admin-tab-content active">
+                        <div class="admin-header">
+                            <h3>Q&A Management</h3>
+                            <button id="addQABtn" class="add-btn">
+                                <i class="fas fa-plus"></i> Add New Q&A
+                            </button>
+                        </div>
+                        <div class="qa-form" id="qaForm" style="display: none;">
+                            <h4>Add/Edit Q&A</h4>
+                            <input type="hidden" id="qaEditId">
+                            <div class="form-group">
+                                <label>Question:</label>
+                                <input type="text" id="qaQuestion" placeholder="Enter question">
+                            </div>
+                            <div class="form-group">
+                                <label>Answer:</label>
+                                <textarea id="qaAnswer" placeholder="Enter answer" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Category:</label>
+                                <select id="qaCategory">
+                                    <option value="basics">Basics</option>
+                                    <option value="rights">Rights</option>
+                                    <option value="government">Government</option>
+                                    <option value="amendments">Amendments</option>
+                                    <option value="history">History</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" id="saveQA" class="save-btn">Save</button>
+                                <button type="button" id="cancelQA" class="cancel-btn">Cancel</button>
+                            </div>
+                        </div>
+                        <div id="qaList" class="data-list">
+                            <!-- Q&A items will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Articles Management -->
+                    <div id="articlesTab" class="admin-tab-content">
+                        <div class="admin-header">
+                            <h3>Articles Management</h3>
+                            <button id="addArticleBtn" class="add-btn">
+                                <i class="fas fa-plus"></i> Add New Article
+                            </button>
+                        </div>
+                        <div class="article-form" id="articleForm" style="display: none;">
+                            <h4>Add/Edit Article</h4>
+                            <input type="hidden" id="articleEditId">
+                            <div class="form-group">
+                                <label>Title:</label>
+                                <input type="text" id="articleTitle" placeholder="Enter article title">
+                            </div>
+                            <div class="form-group">
+                                <label>Content:</label>
+                                <textarea id="articleContent" placeholder="Enter article content" rows="8"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Category:</label>
+                                <select id="articleCategory">
+                                    <option value="fundamentals">Fundamentals</option>
+                                    <option value="rights">Rights</option>
+                                    <option value="government">Government</option>
+                                    <option value="judiciary">Judiciary</option>
+                                    <option value="amendments">Amendments</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" id="saveArticle" class="save-btn">Save</button>
+                                <button type="button" id="cancelArticle" class="cancel-btn">Cancel</button>
+                            </div>
+                        </div>
+                        <div id="articleAdminList" class="data-list">
+                            <!-- Articles will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Quiz Management -->
+                    <div id="quizTab" class="admin-tab-content">
+                        <div class="admin-header">
+                            <h3>Quiz Management</h3>
+                            <button id="addQuizBtn" class="add-btn">
+                                <i class="fas fa-plus"></i> Add New Quiz Question
+                            </button>
+                        </div>
+                        <div class="quiz-form" id="quizForm" style="display: none;">
+                            <h4>Add/Edit Quiz Question</h4>
+                            <input type="hidden" id="quizEditId">
+                            <div class="form-group">
+                                <label>Question:</label>
+                                <textarea id="quizQuestion" placeholder="Enter quiz question" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Options (one per line):</label>
+                                <textarea id="quizOptions" placeholder="Option A&#10;Option B&#10;Option C&#10;Option D" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Correct Answer:</label>
+                                <select id="quizCorrectAnswer">
+                                    <option value="0">A (First option)</option>
+                                    <option value="1">B (Second option)</option>
+                                    <option value="2">C (Third option)</option>
+                                    <option value="3">D (Fourth option)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Explanation (optional):</label>
+                                <textarea id="quizExplanation" placeholder="Explain why this answer is correct" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Category:</label>
+                                <select id="quizCategory">
+                                    <option value="basics">Basics</option>
+                                    <option value="rights">Rights</option>
+                                    <option value="government">Government</option>
+                                    <option value="amendments">Amendments</option>
+                                    <option value="history">History</option>
+                                    <option value="judiciary">Judiciary</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Difficulty:</label>
+                                <select id="quizDifficulty">
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" id="saveQuiz" class="save-btn">Save</button>
+                                <button type="button" id="cancelQuiz" class="cancel-btn">Cancel</button>
+                            </div>
+                        </div>
+                        <div id="quizList" class="data-list">
+                            <!-- Quiz questions will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Data Sources Management -->
+                    <div id="sourcesTab" class="admin-tab-content">
+                        <div class="admin-header">
+                            <h3>Data Sources Management</h3>
+                            <button id="addSourceBtn" class="add-btn">
+                                <i class="fas fa-plus"></i> Add External Source
+                            </button>
+                        </div>
+                        
+                        <div class="sources-info">
+                            <div class="info-card">
+                                <h4><i class="fas fa-info-circle"></i> Supported Sources</h4>
+                                <ul>
+                                    <li><strong>Local Files:</strong> Place qna.txt, articles.txt, quiz.txt in same folder</li>
+                                    <li><strong>Google Drive:</strong> Share file publicly and use direct download link</li>
+                                    <li><strong>GitHub Raw:</strong> Raw content links from GitHub repositories</li>
+                                    <li><strong>Any URL:</strong> Direct links to text files with proper CORS headers</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="external-source-form" id="sourceForm" style="display: none;">
+                            <h4>Add External Data Source</h4>
+                            <input type="hidden" id="sourceEditId">
+                            <div class="form-group">
+                                <label>Source Name:</label>
+                                <input type="text" id="sourceName" placeholder="e.g., Constitutional Law Questions">
+                            </div>
+                            <div class="form-group">
+                                <label>URL:</label>
+                                <input type="url" id="sourceUrl" placeholder="https://drive.google.com/...">
+                            </div>
+                            <div class="form-group">
+                                <label>Data Type:</label>
+                                <select id="sourceType">
+                                    <option value="qa">Q&A Data</option>
+                                    <option value="articles">Articles Data</option>
+                                    <option value="quiz">Quiz Data</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Format:</label>
+                                <select id="sourceFormat">
+                                    <option value="json">JSON</option>
+                                    <option value="csv">CSV</option>
+                                    <option value="txt">Plain Text</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="sourceEnabled" checked>
+                                    Enable this source
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" id="saveSource" class="save-btn">Save</button>
+                                <button type="button" id="testSource" class="btn btn--secondary">Test Connection</button>
+                                <button type="button" id="cancelSource" class="cancel-btn">Cancel</button>
+                            </div>
+                        </div>
+
+                        <div class="sources-controls">
+                            <button id="refreshAllSources" class="btn btn--primary">
+                                <i class="fas fa-sync"></i> Refresh All Sources
+                            </button>
+                            <button id="loadLocalFiles" class="btn btn--secondary">
+                                <i class="fas fa-folder-open"></i> Load Local Files
+                            </button>
+                        </div>
+
+                        <div id="sourcesList" class="data-list">
+                            <!-- External sources will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Advanced Theme Customizer -->
+                    <div id="themeTab" class="admin-tab-content">
+                        <div class="admin-header">
+                            <h3>🎨 Advanced Color Management</h3>
+                            <div class="theme-actions">
+                                <button id="saveTheme" class="btn btn--primary">
+                                    <i class="fas fa-save"></i> Save Theme
+                                </button>
+                                <button id="resetTheme" class="btn btn--secondary">
+                                    <i class="fas fa-undo"></i> Reset to Default
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Theme Presets -->
+                        <div class="theme-section">
+                            <h4><i class="fas fa-palette"></i> Quick Theme Presets</h4>
+                            <div class="theme-presets">
+                                <button class="theme-preset active" data-theme="default">
+                                    <div class="preset-colors">
+                                        <div class="color-dot" style="background: #218380;"></div>
+                                        <div class="color-dot" style="background: #e91e63;"></div>
+                                        <div class="color-dot" style="background: #fafafa;"></div>
+                                        <div class="color-dot" style="background: #212121;"></div>
+                                    </div>
+                                    <span>Default</span>
+                                </button>
+                                <button class="theme-preset" data-theme="dark">
+                                    <div class="preset-colors">
+                                        <div class="color-dot" style="background: #32b8c6;"></div>
+                                        <div class="color-dot" style="background: #ff5489;"></div>
+                                        <div class="color-dot" style="background: #1f2121;"></div>
+                                        <div class="color-dot" style="background: #f5f5f5;"></div>
+                                    </div>
+                                    <span>Dark</span>
+                                </button>
+                                <button class="theme-preset" data-theme="blue">
+                                    <div class="preset-colors">
+                                        <div class="color-dot" style="background: #1976d2;"></div>
+                                        <div class="color-dot" style="background: #ff4081;"></div>
+                                        <div class="color-dot" style="background: #f3f7ff;"></div>
+                                        <div class="color-dot" style="background: #1a237e;"></div>
+                                    </div>
+                                    <span>Ocean Blue</span>
+                                </button>
+                                <button class="theme-preset" data-theme="green">
+                                    <div class="preset-colors">
+                                        <div class="color-dot" style="background: #2e7d32;"></div>
+                                        <div class="color-dot" style="background: #ff6f00;"></div>
+                                        <div class="color-dot" style="background: #f1f8e9;"></div>
+                                        <div class="color-dot" style="background: #1b5e20;"></div>
+                                    </div>
+                                    <span>Forest Green</span>
+                                </button>
+                                <button class="theme-preset" data-theme="purple">
+                                    <div class="preset-colors">
+                                        <div class="color-dot" style="background: #7b1fa2;"></div>
+                                        <div class="color-dot" style="background: #ff5722;"></div>
+                                        <div class="color-dot" style="background: #fce4ec;"></div>
+                                        <div class="color-dot" style="background: #4a148c;"></div>
+                                    </div>
+                                    <span>Royal Purple</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Color Controls -->
+                        <div class="theme-section">
+                            <h4><i class="fas fa-sliders-h"></i> Advanced Color Controls</h4>
+                            <div class="color-groups">
+                                
+                                <!-- Primary Colors -->
+                                <div class="color-group">
+                                    <h5>Primary Colors</h5>
+                                    <div class="color-controls">
+                                        <div class="color-control">
+                                            <label for="primaryColor">Primary Color</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="primaryColor" value="#218380">
+                                                <div class="color-preview" id="primaryColorPreview">#218380</div>
+                                            </div>
+                                        </div>
+                                        <div class="color-control">
+                                            <label for="primaryHover">Primary Hover</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="primaryHover" value="#1d7471">
+                                                <div class="color-preview" id="primaryHoverPreview">#1d7471</div>
+                                            </div>
+                                        </div>
+                                        <div class="color-control">
+                                            <label for="secondaryColor">Secondary Color</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="secondaryColor" value="#e91e63">
+                                                <div class="color-preview" id="secondaryColorPreview">#e91e63</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Background Colors -->
+                                <div class="color-group">
+                                    <h5>Background & Surface</h5>
+                                    <div class="color-controls">
+                                        <div class="color-control">
+                                            <label for="backgroundColor">Background Color</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="backgroundColor" value="#fafafa">
+                                                <div class="color-preview" id="backgroundColorPreview">#fafafa</div>
+                                            </div>
+                                        </div>
+                                        <div class="color-control">
+                                            <label for="surfaceColor">Surface Color</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="surfaceColor" value="#ffffff">
+                                                <div class="color-preview" id="surfaceColorPreview">#ffffff</div>
+                                            </div>
+                                        </div>
+                                        <div class="color-control">
+                                            <label for="cardBorder">Card Border</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="cardBorder" value="#e0e0e0">
+                                                <div class="color-preview" id="cardBorderPreview">#e0e0e0</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Text Colors -->
+                                <div class="color-group">
+                                    <h5>Text & Typography</h5>
+                                    <div class="color-controls">
+                                        <div class="color-control">
+                                            <label for="textColor">Primary Text</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="textColor" value="#212121">
+                                                <div class="color-preview" id="textColorPreview">#212121</div>
+                                            </div>
+                                        </div>
+                                        <div class="color-control">
+                                            <label for="textSecondary">Secondary Text</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="textSecondary" value="#757575">
+                                                <div class="color-preview" id="textSecondaryPreview">#757575</div>
+                                            </div>
+                                        </div>
+                                        <div class="color-control">
+                                            <label for="borderColor">Border Color</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="borderColor" value="#e0e0e0">
+                                                <div class="color-preview" id="borderColorPreview">#e0e0e0</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Status Colors -->
+                                <div class="color-group">
+                                    <h5>Status & Feedback</h5>
+                                    <div class="color-controls">
+                                        <div class="color-control">
+                                            <label for="successColor">Success Color</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="successColor" value="#218380">
+                                                <div class="color-preview" id="successColorPreview">#218380</div>
+                                            </div>
+                                        </div>
+                                        <div class="color-control">
+                                            <label for="errorColor">Error Color</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="errorColor" value="#c01530">
+                                                <div class="color-preview" id="errorColorPreview">#c01530</div>
+                                            </div>
+                                        </div>
+                                        <div class="color-control">
+                                            <label for="warningColor">Warning Color</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="warningColor" value="#a84b2f">
+                                                <div class="color-preview" id="warningColorPreview">#a84b2f</div>
+                                            </div>
+                                        </div>
+                                        <div class="color-control">
+                                            <label for="infoColor">Info Color</label>
+                                            <div class="color-input-group">
+                                                <input type="color" id="infoColor" value="#626c71">
+                                                <div class="color-preview" id="infoColorPreview">#626c71</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Live Preview -->
+                        <div class="theme-section">
+                            <h4><i class="fas fa-eye"></i> Live Preview</h4>
+                            <div class="live-preview">
+                                <div class="preview-header" style="background: var(--color-primary); color: var(--color-surface); padding: 16px; border-radius: 8px 8px 0 0;">
+                                    <h3 style="margin: 0; color: inherit;">Constitution Hub Preview</h3>
+                                    <p style="margin: 8px 0 0 0; opacity: 0.9; color: inherit;">This shows how your theme looks</p>
+                                </div>
+                                <div class="preview-body" style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 16px; border-radius: 0 0 8px 8px;">
+                                    <p style="color: var(--color-text); margin: 0 0 12px 0;">This is primary text using your selected color.</p>
+                                    <p style="color: var(--color-text-secondary); margin: 0 0 16px 0; font-size: 14px;">This is secondary text with your chosen color.</p>
+                                    
+                                    <div style="display: flex; gap: 12px; margin: 16px 0; flex-wrap: wrap;">
+                                        <button class="btn btn--primary">Primary Button</button>
+                                        <button class="btn btn--secondary">Secondary Button</button>
+                                    </div>
+                                    
+                                    <div style="display: grid; gap: 8px; margin-top: 16px;">
+                                        <div class="status status--success">Success status message</div>
+                                        <div class="status status--error">Error status message</div>
+                                        <div class="status status--warning">Warning status message</div>
+                                        <div class="status status--info">Info status message</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Custom Theme Management -->
+                        <div class="theme-section">
+                            <h4><i class="fas fa-folder"></i> Custom Theme Management</h4>
+                            <div class="custom-theme-actions">
+                                <button id="saveCustomTheme" class="btn btn--success">
+                                    <i class="fas fa-plus"></i> Save as Custom Theme
+                                </button>
+                                <button id="previewTheme" class="btn btn--info">
+                                    <i class="fas fa-eye"></i> Full Preview
+                                </button>
+                                <button id="resetColors" class="btn btn--warning">
+                                    <i class="fas fa-refresh"></i> Reset Colors
+                                </button>
+                            </div>
+                            
+                            <div id="customThemesList" class="custom-themes-list">
+                                <!-- Custom themes will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- Import/Export Theme -->
+                        <div class="theme-section">
+                            <h4><i class="fas fa-download"></i> Import/Export Theme</h4>
+                            <div class="theme-import-export">
+                                <button id="exportTheme" class="btn btn--primary">
+                                    <i class="fas fa-download"></i> Export Theme
+                                </button>
+                                <button id="importThemeBtn" class="btn btn--secondary">
+                                    <i class="fas fa-upload"></i> Import Theme
+                                </button>
+                                <input type="file" id="importThemeFile" accept=".json" style="display: none;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Backup/Restore -->
+                    <div id="backupTab" class="admin-tab-content">
+                        <div class="backup-section">
+                            <h3>Backup & Restore Data</h3>
+                            <div class="backup-actions">
+                                <button id="exportData" class="export-btn">
+                                    <i class="fas fa-download"></i> Export All Data
+                                </button>
+                                <button id="exportToFiles" class="export-btn">
+                                    <i class="fas fa-file-export"></i> Export to Text Files
+                                </button>
+                                <div class="import-section">
+                                    <input type="file" id="importFile" accept=".json" style="display: none;">
+                                    <button id="importData" class="import-btn">
+                                        <i class="fas fa-upload"></i> Import Data
+                                    </button>
+                                </div>
+                                <button id="resetData" class="reset-btn">
+                                    <i class="fas fa-refresh"></i> Reset to Default
+                                </button>
+                            </div>
+                            <div class="data-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Total Q&A:</span>
+                                    <span id="qaCount">0</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Total Articles:</span>
+                                    <span id="articleCount">0</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Total Quiz Questions:</span>
+                                    <span id="quizCount">0</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">External Sources:</span>
+                                    <span id="sourcesCount">0</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Last Updated:</span>
+                                    <span id="lastUpdated">Never</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Constitution Hub - Learn the Indian Constitution Simply</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/sourabh-dhara-214700302/"><i class="fas fa-info-circle"></i> About</a>
+                <a href="https://www.instagram.com/sourabh_dhara/"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="https://github.com/Sourabhdhara"><i class="fas fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p id="loadingText">Loading data sources...</p>
+        </div>
+    </div>
+
+    <!-- Theme Preview Modal -->
+    <div id="themePreviewModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Theme Preview</h4>
+                <button class="modal-close" onclick="document.getElementById('themePreviewModal').style.display='none'">×</button>
+            </div>
+            <div id="themePreviewContent" class="modal-body">
+                <!-- Preview content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
